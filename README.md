@@ -1,4 +1,4 @@
-## Levenshtein Lite
+### Levenshtein Lite (Minimum Edit Distance Algorithm)
 
 > A lightweight implementation of the Levenshtein distance algorithm.
 

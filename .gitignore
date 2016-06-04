@@ -1,3 +1,6 @@
 
+# Directories
+node_modules
+
 # Other
 npm-debug.log
