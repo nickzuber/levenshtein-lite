@@ -1,19 +1,19 @@
 {
-  "name": "levanshtein-lite",
+  "name": "levenshtein-lite",
   "version": "1.0.0",
-  "description": "A lightweight implementation of the Levanshtein distance algorithm.",
-  "main": "build/levanshtein-lite.js",
+  "description": "A lightweight implementation of the Levenshtein distance algorithm.",
+  "main": "build/levenshtein-lite.js",
   "scripts": {
     "lint": "eslint ./src/*.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/nickzuber/levanshtein-lite.git"
+    "url": "git+ssh://git@github.com/nickzuber/levenshtein-lite.git"
   },
   "keywords": [
-    "levanshtein",
+    "levenshtein",
     "lite",
-    "levanshtein-lite",
+    "levenshtein-lite",
     "edit",
     "distance",
     "minimum",
@@ -24,7 +24,7 @@
   "author": "Nick Zuber <zuber.nicholas@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nickzuber/levanshtein-lite/issues"
+    "url": "https://github.com/nickzuber/levenshtein-lite/issues"
   },
-  "homepage": "https://github.com/nickzuber/levanshtein-lite#readme"
+  "homepage": "https://github.com/nickzuber/levenshtein-lite#readme"
 }
