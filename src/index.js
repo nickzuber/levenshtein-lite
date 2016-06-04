@@ -1,5 +1,8 @@
 'use strict';
 
-import levenstein from './lib/levenstein-lite.js';
+import distance from './lib/levenshtein-lite.js';
 
-export default levenstein;
+const LevenshteinLite = {};
+LevenshteinLite.distance = distance;
+
+export default LevenshteinLite;
