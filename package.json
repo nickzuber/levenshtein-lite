@@ -5,7 +5,8 @@
   "main": "build/index.js",
   "scripts": {
     "build": "./node_modules/.bin/babel src -d build",
-    "lint": "eslint ./src/*.js"
+    "lint": "eslint ./src/*.js",
+    "ci": "eslint ./src/*.js && node run ./unit/"
   },
   "repository": {
     "type": "git",

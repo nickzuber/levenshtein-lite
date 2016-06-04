@@ -1,5 +1,5 @@
 'use strict';
 
-import levenstein from './lib/levenstein-lite.js'
+import levenstein from './lib/levenstein-lite.js';
 
 export default levenstein;

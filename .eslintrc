@@ -5,11 +5,19 @@ env:
   node: true
 
 rules:
-  array-bracket-spacing: [2, never]
   block-spacing: [2, always]
   comma-dangle: [1, never]
   comma-spacing: [2, {before: false, after: true}]
   comma-style: [2, last]
   no-unreachable: 2
+  no-var: 0
+  space-before-function-paren: 0
+  semi: [2, "always"]
+  object-curly-spacing: 0
+  array-bracket-spacing: 0
+  no-multiple-empty-lines: [2, {"max": 1}]
+
+parserOptions:
+  sourceType: module
 
 strict: 1
