@@ -14,7 +14,7 @@ This algorithm is inspired by the dynamic programming approach and tries to cons
 
 #### Alright Jack, but what's the time and space complexity?
 
-This particular implementation of the Levenshtein distance has an asymptotic upper bound of `O(n^2)` and uses `O(n)` space.
+This particular implementation of the Levenshtein distance has an asymptotic upper bound of `O(nm)` and uses `O(n)` space.
 
 ### Installation
 

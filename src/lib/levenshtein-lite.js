@@ -8,8 +8,6 @@ const MIN = Math.min;
  * of the Wagner–Fischer algorithm, only instead of using an entire
  * a x b matrix, I use two arrays size a so we don't waste memory.
  *
- * This algorithm has an asymptotic runtime of O(n^2).
- *
  * @param  {string}    a  First string argument.
  * @param  {string}    b  Second string argument.
  * @param  {[number]}  k  Optional maximum distance, algorithm will exit early if reached during calcuation
