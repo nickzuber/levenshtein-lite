@@ -5,16 +5,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 var MIN = Math.min;
 
-function printMatrix(arr) {
-  for (var i = 0; i < arr.length; i++) {
-    var row = '';
-    for (var z = 0; z < arr[i].length; z++) {
-      row += arr[i][z] + ' ';
-    }
-    console.log(row);
-  }
-}
-
 /**
  * Takes two strings as parameters and computes the Levenshtein
  * distance between the two strings. This currently is a derivation
