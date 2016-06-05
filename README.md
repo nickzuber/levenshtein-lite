@@ -1,5 +1,4 @@
-## [Levenshtein Lite (Minimum Edit Distance Algorithm)](https://en.wikipedia.org/wiki/Levenshtein_distance)
-[![Build Status](https://travis-ci.org/nickzuber/levenshtein-lite.svg?branch=master)](https://travis-ci.org/nickzuber/levenshtein-lite)
+## [Levenshtein Lite (Minimum Edit Distance Algorithm)](https://en.wikipedia.org/wiki/Levenshtein_distance) [![Build Status](https://travis-ci.org/nickzuber/levenshtein-lite.svg?branch=master)](https://travis-ci.org/nickzuber/levenshtein-lite)
 
 > A lightweight implementation of the Levenshtein distance algorithm.
 
