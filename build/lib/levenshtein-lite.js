@@ -1,7 +1,5 @@
 'use strict';
 
-/** Save a local reference to native min method */
-
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -48,34 +46,29 @@ var levenshtein = function levenshtein(a, b) {
   if (aLength === 0) return a.length;
   if (bLength === 0) return b.length;
 
-  var matrix = [];
+  var column_crawler_0 = [];
+  var column_crawler_1 = [];
 
   for (var i = 0; i < aLength + 1; ++i) {
-    matrix[i] = Array(bLength + 1).fill(0);
-    matrix[i][0] = i;
-  }
-  for (var _i = 0; _i < bLength + 1; ++_i) {
-    matrix[0][_i] = _i;
+    column_crawler_0[i] = i;
+    column_crawler_1[i] = 0;
   }
 
   for (var j = 1; j < bLength + 1; ++j) {
-    var curColumn = [];
-    for (var _i2 = 1; _i2 < aLength + 1; ++_i2) {
-      var cost = a[_i2 - 1] === b[j - 1] ? 0 : 1;
-      var curMin = MIN(matrix[_i2 - 1][j] + 1, matrix[_i2][j - 1] + 1, matrix[_i2 - 1][j - 1] + cost);
-      matrix[_i2][j] = curMin;
-      curColumn.push(curMin);
+    column_crawler_1[0] = j;
+    for (var _i = 1; _i < aLength + 1; ++_i) {
+      var cost = a[_i - 1] === b[j - 1] ? 0 : 1;
+      var curMin = MIN(column_crawler_1[_i - 1] + 1, column_crawler_0[_i] + 1, column_crawler_0[_i - 1] + cost);
+      column_crawler_1[_i] = curMin;
     }
-    // Return -1 if current distance exceeds cap
-    if (k && MIN.apply(undefined, curColumn) > k) {
+    if (k && MIN.apply(undefined, column_crawler_1) > k) {
       return -1;
     }
+    column_crawler_1.map(function (e, i) {
+      column_crawler_0[i] = e;
+    });
   }
-
-  printMatrix(matrix);
-  console.log(' ');
-
-  return matrix[aLength][bLength];
+  return column_crawler_1.pop();
 };
 
 exports.default = levenshtein;

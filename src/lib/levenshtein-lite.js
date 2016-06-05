@@ -1,6 +1,5 @@
 'use strict';
 
-/** Save a local reference to native min method */
 const MIN = Math.min;
 
 function printMatrix(arr) {
@@ -15,13 +14,11 @@ function printMatrix(arr) {
 
 /**
  * Takes two strings as parameters and computes the Levenshtein
- * distance between the two strings. This currently is an implementation
- * of the Wagner–Fischer algorithm.
+ * distance between the two strings. This currently is a derivation
+ * of the Wagner–Fischer algorithm, only instead of using an entire
+ * a x b matrix, I use two arrays size a so we don't waste memory.
  *
  * This algorithm has an asymptotic runtime of O(n^2).
-
- * TODO: Consider Hirschberg's algorithm or the two matrix rows approach
- *       for more conservative memory usage.
  *
  * @param  {string}    a  First string argument.
  * @param  {string}    b  Second string argument.
@@ -42,34 +39,28 @@ const levenshtein = (a, b, k = false) => {
   if (aLength === 0) return a.length;
   if (bLength === 0) return b.length;
 
-  var matrix = [];
+  var column_crawler_0 = [];
+  var column_crawler_1 = [];
 
   for (let i = 0; i < aLength + 1; ++i) {
-    matrix[i] = Array(bLength + 1).fill(0);
-    matrix[i][0] = i;
-  }
-  for (let i = 0; i < bLength + 1; ++i) {
-    matrix[0][i] = i;
+    column_crawler_0[i] = i;
+    column_crawler_1[i] = 0;
   }
 
   for (let j = 1; j < bLength + 1; ++j) {
-    let curColumn = [];
+    column_crawler_1[0] = j;
     for (let i = 1; i < aLength + 1; ++i) {
       let cost = a[i-1] === b[j-1] ? 0 : 1;
-      let curMin = MIN(matrix[i - 1][j] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j - 1] + cost);
-      matrix[i][j] = curMin;
-      curColumn.push(curMin);
+      column_crawler_1[i] = MIN(column_crawler_1[i - 1] + 1, column_crawler_0[i] + 1, column_crawler_0[i - 1] + cost);
     }
-    // Return -1 if current distance exceeds cap
-    if (k && MIN(...curColumn) > k) {
+    if (k && MIN(...column_crawler_1) > k) {
       return -1;
     }
+    column_crawler_1.map((e, i) => {
+    	column_crawler_0[i] = e;
+    })
   }
-
-  printMatrix(matrix);
-  console.log(' ');
-
-  return matrix[aLength][bLength];
+  return column_crawler_1.pop()
 }
 
 export default levenshtein;
