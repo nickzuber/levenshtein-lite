@@ -26,7 +26,19 @@ $ npm install levenshtein-lite --save
 
 ### Usage
 
-Levenshtein Lite is a very basic module; it only consists of the actual edit distance calculation function. Simply import the package and start calculating.
+Levenshtein Lite is a simple module; it only consists of the actual edit distance calculation function. Simply import the package and start calculating. Here's an overview on how things work.
+
+When you import the library, you're importing this function directly so the name here is pretty arbitrary. Let's call it `levenshtein` for now:
+
+**levenshtein**(< *string* >a, < *string* >b, [< *number* >k]) - *number* - Returns the Levenshtein edit distance between the two input strings `a` and `b`.
+
+ - `a` - The first string argument.
+
+ - `b` - The second string argument.
+
+ - `k` - An optional distance cap. If the edit distance between the two input strings ever exceed this argument during the calculation, the process will terminate and `-1` will be returned. This is helpful for speeding up calculations between strings when you only care about matches within a certain edit distance.
+
+### Examples
 
 ```javascript
 import getDistance from 'levenshtein-lite';
@@ -38,7 +50,6 @@ getDistance('summertime', 'spring'); // => 7
 // this process will return -1 the moment we exceed the cap during
 // calculation. Helps make things more efficient.
 getDistance('summertime', 'spring', 5); // => -1
-
 ```
 
 ### License
