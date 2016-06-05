@@ -6,7 +6,7 @@
   "scripts": {
     "build": "./node_modules/.bin/babel src -d build",
     "unit": "node ./unit/tests.js",
-    "bench": "node ./benchmarks/index.js",
+    "bench": "rm ./benchmarks/benchmarks.log && node ./benchmarks/index.js",
     "lint": "eslint ./src/*.js",
     "ci": "eslint ./src/*.js && node ./unit/tests.js"
   },

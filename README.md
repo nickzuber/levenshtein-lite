@@ -16,6 +16,10 @@ This algorithm is inspired by the dynamic programming approach and tries to cons
 
 This particular implementation of the Levenshtein distance has an asymptotic upper bound of `O(nm)` and uses `O(n)` space.
 
+#### How fast does it actually run?
+
+See for yourself by [checking out some benchmarks](https://github.com/nickzuber/levenshtein-lite/tree/master/benchmarks/benchmarks.log).
+
 ### Installation
 
 Simply install the module as a [package through npm](https://www.npmjs.com/package/levenshtein-lite).

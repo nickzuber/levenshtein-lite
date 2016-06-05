@@ -1,0 +1,5 @@
+{"level":"info","message":"Running speed tests on levenshtein distance calculations.","timestamp":"2016-06-05T03:08:51.728Z"}
+{"level":"info","message":"Evaluating 274,926 words, calculating the Levenshtein distance 137,463 times without a distance cap.","timestamp":"2016-06-05T03:08:51.806Z"}
+{"level":"info","message":"This process took 1.41 seconds to execute.","timestamp":"2016-06-05T03:08:53.217Z"}
+{"level":"info","message":"Evaluating 274,926 words, calculating the Levenshtein distance 137,463 times with a distance cap of 3.","timestamp":"2016-06-05T03:08:53.217Z"}
+{"level":"info","message":"This process took 0.732 seconds to execute.","timestamp":"2016-06-05T03:08:53.965Z"}
