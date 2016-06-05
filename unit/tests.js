@@ -28,5 +28,12 @@ Tape('Should return 3', function(t) {
     t.fail('LevenshteinLite has failed ungracefully: ' + e.message)
   }
 
+  try {
+    var distance = LevenshteinLite('kitten', 'sitting', 2);
+    t.equal(distance, -1, 'Checking to see if Levenshtein distance exits early when cap is hit.')
+  } catch(e) {
+    t.fail('LevenshteinLite has failed ungracefully: ' + e.message)
+  }
+
   t.end();
 });

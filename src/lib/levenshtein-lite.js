@@ -48,7 +48,7 @@ const levenshtein = (a, b, k = false) => {
     }
     column_crawler_1.map((e, i) => {
     	column_crawler_0[i] = e;
-    })
+    });
   }
   return column_crawler_1.pop()
 }
