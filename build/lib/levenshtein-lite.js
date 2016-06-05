@@ -17,13 +17,11 @@ function printMatrix(arr) {
 
 /**
  * Takes two strings as parameters and computes the Levenshtein
- * distance between the two strings. This currently is an implementation
- * of the Wagner–Fischer algorithm.
+ * distance between the two strings. This currently is a derivation
+ * of the Wagner–Fischer algorithm, only instead of using an entire
+ * a x b matrix, I use two arrays size a so we don't waste memory.
  *
  * This algorithm has an asymptotic runtime of O(n^2).
-
- * TODO: Consider Hirschberg's algorithm or the two matrix rows approach
- *       for more conservative memory usage.
  *
  * @param  {string}    a  First string argument.
  * @param  {string}    b  Second string argument.
@@ -58,8 +56,7 @@ var levenshtein = function levenshtein(a, b) {
     column_crawler_1[0] = j;
     for (var _i = 1; _i < aLength + 1; ++_i) {
       var cost = a[_i - 1] === b[j - 1] ? 0 : 1;
-      var curMin = MIN(column_crawler_1[_i - 1] + 1, column_crawler_0[_i] + 1, column_crawler_0[_i - 1] + cost);
-      column_crawler_1[_i] = curMin;
+      column_crawler_1[_i] = MIN(column_crawler_1[_i - 1] + 1, column_crawler_0[_i] + 1, column_crawler_0[_i - 1] + cost);
     }
     if (k && MIN.apply(undefined, column_crawler_1) > k) {
       return -1;
