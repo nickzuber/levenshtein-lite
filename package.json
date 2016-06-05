@@ -7,6 +7,7 @@
     "build": "./node_modules/.bin/babel src -d build",
     "unit": "node ./unit/tests.js",
     "bench": "rm ./benchmarks/benchmarks.log && node ./benchmarks/index.js",
+    "test": "node ./examples/spellChecker.js",
     "lint": "eslint ./src/*.js",
     "ci": "eslint ./src/*.js && node ./unit/tests.js"
   },

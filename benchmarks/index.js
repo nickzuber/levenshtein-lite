@@ -1,12 +1,12 @@
 'use strict';
 
-const fs = require('fs');
-const winston = require('winston');
+var fs = require('fs');
+var winston = require('winston');
 winston.add(winston.transports.File, { filename: 'benchmarks/benchmarks.log' });
 winston.log('info', 'Running speed tests on levenshtein distance calculations.');
-const wordListPath = require('word-list');
-const shuffle = require('knuth-shuffle').knuthShuffle;
-const distance = require('../build');
+var wordListPath = require('word-list');
+var shuffle = require('knuth-shuffle').knuthShuffle;
+var distance = require('../build');
 
 const CAP = 3;
 var wordArray = fs.readFileSync(wordListPath, 'utf8').split('\n');

@@ -14,21 +14,27 @@ const MIN = Math.min;
  * @return {number}       The levenstein distance of the two strings.
  */
 const levenshtein = (a, b, k = false) => {
-  // Clean strings
+  if (typeof a !== 'string' || typeof b !== 'string') {
+    throw new TypeError('First and second parameters for levenshtein-lite function must be of type string.');
+  } else if (k && typeof k !== 'number') {
+    throw new TypeError('Third parameters for levenshtein-lite function must be of type number.');
+  }
+
+  if (a.length > b.length) {
+  	let temp = a;
+    a = b;
+    b = temp;
+  }
+
   a = a.toLowerCase().trim();
   b = b.toLowerCase().trim();
-
-  // Local references
   var aLength = a.length;
   var bLength = b.length;
-
-  // Base cases
+  var column_crawler_0 = [];
+  var column_crawler_1 = [];
   if (a === b) return 0;
   if (aLength === 0) return a.length;
   if (bLength === 0) return b.length;
-
-  var column_crawler_0 = [];
-  var column_crawler_1 = [];
 
   for (let i = 0; i < aLength + 1; ++i) {
     column_crawler_0[i] = i;

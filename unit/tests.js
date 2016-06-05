@@ -38,6 +38,8 @@ Tape('Should return 3', function(t) {
     t.equal(distance, -1, 'Checking to see if Levenshtein distance exits early when cap is hit.');
     distance = LevenshteinLite('summertime', 'spring', 3);
     t.equal(distance, -1, 'Checking to see if Levenshtein distance exits early when cap is hit.');
+    distance = LevenshteinLite('faverite', 'ea', 1);
+    t.equal(distance, -1, 'Checking to see if Levenshtein distance exits early when cap is hit.');
   } catch(e) {
     t.fail('LevenshteinLite has failed ungracefully: ' + e.message);
   }
