@@ -29,11 +29,6 @@ Tape('Should return 3', function(t) {
 
   // With distance cap
   try {
-  } catch(e) {
-    t.fail('LevenshteinLite has failed ungracefully: ' + e.message);
-  }
-
-  try {
     var distance = LevenshteinLite('kitten', 'sitting', 2);
     t.equal(distance, -1, 'Checking to see if Levenshtein distance exits early when cap is hit.');
     distance = LevenshteinLite('summertime', 'spring', 3);
