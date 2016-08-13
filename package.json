@@ -1,6 +1,6 @@
 {
   "name": "levenshtein-lite",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A lightweight implementation of the Levenshtein distance algorithm.",
   "main": "./build/index.js",
   "scripts": {
@@ -8,8 +8,8 @@
     "unit": "node ./unit/tests.js",
     "bench": "rm ./benchmarks/benchmarks.log && node ./benchmarks/index.js",
     "test": "node ./examples/spellChecker.js",
-    "lint": "eslint ./src/*.js",
-    "ci": "eslint ./src/*.js && node ./unit/tests.js"
+    "lint": "./node_modules/.bin/eslint ./src/*.js",
+    "ci": "./node_modules/.bin/eslint ./src/*.js && node ./unit/tests.js"
   },
   "repository": {
     "type": "git",

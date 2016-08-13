@@ -6,7 +6,9 @@ node_modules
 src
 benchmarks
 unit
+examples
 
 .gulpfile
+.babelrc
 .travis.yml
 npm-debug.log
