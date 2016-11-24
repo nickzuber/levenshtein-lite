@@ -5,7 +5,7 @@
   "main": "./build/index.js",
   "scripts": {
     "build": "./node_modules/.bin/babel src -d build",
-    "unit": "node ./unit/tests.js",
+    "unit": "node ./unit/tests.js || true",
     "bench": "rm ./benchmarks/benchmarks.log && node ./benchmarks/index.js",
     "test": "node ./examples/spellChecker.js",
     "lint": "./node_modules/.bin/eslint ./src/*.js",

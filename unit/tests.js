@@ -39,5 +39,19 @@ Tape('Should return 3', function(t) {
     t.fail('LevenshteinLite has failed ungracefully: ' + e.message);
   }
 
+  // With computation limit
+  try {
+    var distance = LevenshteinLite('com', 'computer', false, true);
+    t.equal(distance, 0, 'Checking to see if Levenshtein computes partial strings correctly.');
+    distance = LevenshteinLite('computer', 'com', false, true);
+    t.equal(distance, 0, 'Checking to see if Levenshtein computes partial strings correctly.');
+    distance = LevenshteinLite('computer', 'kom', false, true);
+    t.equal(distance, 1, 'Checking to see if Levenshtein computes partial strings correctly.');
+    distance = LevenshteinLite('', 'testing', false, true);
+    t.equal(distance, 7, 'Checking to see if Levenshtein computes partial strings correctly.');
+  } catch(e) {
+    t.fail('LevenshteinLite has failed ungracefully: ' + e.message);
+  }
+
   t.end();
 });
