@@ -34,13 +34,15 @@ Levenshtein Lite is a simple module; it only consists of the actual edit distanc
 
 When you import the library, you're importing this function directly so the name here is pretty arbitrary. Let's call it `levenshtein` for now:
 
-**levenshtein**(< *string* >a, < *string* >b, [< *number* >k]) - *number* - Returns the Levenshtein edit distance between the two input strings `a` and `b`.
+**levenshtein**(< *string* >a, < *string* >b, [< *number* >k], [< *bool* >p]) - *number* - Returns the Levenshtein edit distance between the two input strings `a` and `b`.
 
  - `a` - The first string argument.
 
  - `b` - The second string argument.
 
  - `k` - An optional distance cap. If the edit distance between the two input strings ever exceed this argument during the calculation, the process will terminate and `-1` will be returned. This is helpful for speeding up calculations between strings when you only care about matches within a certain edit distance.
+
+ - `p` - An optional computational limit flag for partial string matching. When this flag is enabled, the distance of the two strings `a` and `b` will only be computed *up to the shortest length of the two strings*. This allows for native support of partial fuzzy string matching. For example, trying to match `com` and `computer` with this flag enabled, the computation would stop after 3 characters and return an edit distance of `0`.
 
 ### Examples
 
@@ -54,9 +56,12 @@ getDistance('summertime', 'spring'); // => 7
 // this process will return -1 the moment we exceed the cap during
 // calculation. Helps make things more efficient.
 getDistance('summertime', 'spring', 5); // => -1
+
+// Add a computational limit to enable partial string matching.
+getDistance('com', 'computer', false, true); // => 0
 ```
 
 ### License
 [MIT](https://opensource.org/licenses/MIT)
 
-Copyright (c) 2015 Nick Zuber
+Copyright (c) 2016 Nick Zuber
